@@ -1,0 +1,98 @@
+body{
+    background-color: black;
+}
+.top-right{
+    z-index: 100;
+    right: 20px;
+    top: 20px;
+    position: fixed;
+    color: white;
+    /* border: red 2px solid; */
+}
+.right-text{
+    position: relative;
+    font-size: 15px;
+    font-family: 'PT serif', serif;
+    display: inline;
+    /* border: red 2px solid; */
+}
+.top-left{
+    z-index: 100;;
+    left: 20px;
+    top: 10px;
+    position: relative;
+    height: 80px;
+    width: 80px;
+    position: fixed;
+    color: white;
+    margin: 0px auto;
+}
+.left-text-red{
+    position: absolute;
+    left: 0;
+    height: 80px;
+    width: 80px;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+.top-left:hover .left-text-red{
+    opacity: 1;
+}
+.left-text-white{
+    position: relative;
+    height: 100%;
+    width: 100%
+}
+a:link{
+    color: white;
+}
+a:visited{
+    color: white;
+}
+a:hover{
+    color: rgb(255, 30, 30);
+}
+#info{
+    color: rgb(255, 30, 30);
+    font-style: italic;
+}
+.center-info{
+    top: 80px;
+    color: white;
+    position: relative;
+    transform: translate(50%);
+    left: -50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'PT serif', serif;
+    bottom: 80px;
+}
+face-box{
+}
+.face{
+    width: 200px;
+    height: auto;
+    bottom: 25px;
+    position: relative;
+}
+#name{
+    margin-top: 25px;
+    margin-bottom: 60px;
+    line-height: 25px;
+}
+#live{
+    margin-bottom: 60px;
+    line-height: 25px;
+}
+#insta{
+    margin-bottom: 60px;
+    line-height: 25px;
+}
+#mail{
+    margin-bottom: 60px;
+    line-height: 25px;
+}
+#bilbe{
+    line-height: 25px;
+}

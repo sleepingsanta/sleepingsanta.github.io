@@ -1,0 +1,78 @@
+body{
+    background-color: black;
+}
+.top-right{
+    z-index: 100;
+    right: 20px;
+    top: 20px;
+    position: fixed;
+    color: white;
+    /* border: red 2px solid; */
+}
+.right-text{
+    position: relative;
+    font-size: 15px;
+    font-family: 'PT serif', serif;
+    display: inline;
+    /* border: red 2px solid; */
+}
+.top-left{
+    z-index: 100;;
+    left: 20px;
+    top: 10px;
+    position: relative;
+    height: 80px;
+    width: 80px;
+    position: fixed;
+    color: white;
+    margin: 0px auto;
+}
+.left-text-red{
+    position: absolute;
+    left: 0;
+    height: 80px;
+    width: 80px;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+.top-left:hover .left-text-red{
+    opacity: 1;
+}
+.left-text-white{
+    position: relative;
+    height: 100%;
+    width: 100%
+}
+.big-box{
+}
+.img{
+}
+.small-img{
+    top: 80px;
+    /* border: solid red 2px; */
+    width: 450px;
+    height: auto;
+    position: relative;
+    margin: 20px;
+}
+
+a:link{
+    color: white;
+}
+a:visited{
+    color: white;
+}
+a:hover{
+    color: rgb(255, 30, 30);
+}
+#portfolio{
+    color: rgb(255, 30, 30);
+    font-style: italic;
+}
+.small-img:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
