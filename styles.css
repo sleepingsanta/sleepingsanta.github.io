@@ -1,17 +1,17 @@
-body{
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+  body{
     background-color: black;
 }
-video{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    object-fit: cover;
-}
+
 .main-box{
 }
-.main-video{
-}
+
 .small-box{
     position: absolute;
     transform: translateX(-50%);
@@ -47,14 +47,16 @@ video{
     font-family: 'PT serif', bold;
     position: relative;
     font-size: 30px;
-    transition: 0.2s;
+    transition: 0.5s;
     background-color: none;
+
+    animation-duration: 3s;
 }
 #name:hover{
     /* font-size: 40px; */
     /* font-weight: bold; */
     color: rgb(255, 30, 30);
-    transition: 0.2s;
+    transition: 0.5s;
 }
 #as-know-as{
     color: rgb(195, 195, 195);
@@ -64,7 +66,7 @@ video{
 .top-right{
     z-index: 100;
     right: 20px;
-    top: 20px;
+    top: 35px;
     position: fixed;
     color: white;
     /* border: red 2px solid; */
@@ -74,6 +76,7 @@ video{
     font-size: 20px;
     font-family: 'PT serif', serif;
     display: inline;
+    margin: 1vh;
     /* border: red 2px solid; */
 }
 .right-text:hover{

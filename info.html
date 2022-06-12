@@ -3,16 +3,99 @@
         <title>$leeping_santa</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="info.css">
+        <style type="text/css"> a{text-decoration: none;} </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <audio id='audio_play' src='lord prayer.mp3'></audio> 
         <style type="text/css">
             a{text-decoration: none;}
+            #threeCanvas {
+				position: fixed;
+				top: 0px;
+				left: 0px;
+			} 
         </style>
+<script type="text/javascript"> 
+    function play() { 
+        var audio = document.getElementById('audio_play'); 
+            if (audio.paused) { 
+                audio.play(); 
+            }
+            else{ 
+            audio.pause(); 
+            audio.currentTime = 0 
+            } 
+    } 
+</script>
     </head>
     <body>
+        <canvas id="threeCanvas"></canvas>
+        <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+            <script type="importmap">
+                {
+                    "imports": {
+                    "three": "https://unpkg.com/three@0.141.0/build/three.module.js"
+                    }
+                }
+            </script>
+        <script type="module">
+          import * as THREE from 'three';
+          import { OrbitControls } from 'https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js';
+          
+          let camera, controls, scene, renderer;
+    
+          init();
+    
+          function init() {
+            scene = new THREE.Scene();
+    
+            renderer = new THREE.WebGLRenderer( { canvas: threeCanvas } );
+            renderer.setPixelRatio( window.devicePixelRatio );
+                    renderer.setSize( window.innerWidth, window.innerHeight );
+    
+            camera = new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,45,30000);
+            camera.position.set(-900,-200,-900);
+    
+            controls = new OrbitControls( camera, renderer.domElement );
+            controls.addEventListener('change', renderer);
+            controls.minDistance = 500;
+            controls.maxDistance = 1500;
+            
+            let materialArray = [];
+            let texture_ft = new THREE.TextureLoader().load( 'xneg.png');
+            let texture_bk = new THREE.TextureLoader().load( 'xpos.png');
+            let texture_up = new THREE.TextureLoader().load( 'yneg.png');
+            let texture_dn = new THREE.TextureLoader().load( 'ypos.png');
+            let texture_rt = new THREE.TextureLoader().load( 'zneg.png');
+            let texture_lf = new THREE.TextureLoader().load( 'zpos.png');
+              
+            materialArray.push(new THREE.MeshBasicMaterial( { map: texture_ft }));
+            materialArray.push(new THREE.MeshBasicMaterial( { map: texture_bk }));
+            materialArray.push(new THREE.MeshBasicMaterial( { map: texture_up }));
+            materialArray.push(new THREE.MeshBasicMaterial( { map: texture_dn }));
+            materialArray.push(new THREE.MeshBasicMaterial( { map: texture_rt }));
+            materialArray.push(new THREE.MeshBasicMaterial( { map: texture_lf }));
+       
+            for (let i = 0; i < 6; i++)
+               materialArray[i].side = THREE.BackSide;
+            let skyboxGeo = new THREE.BoxGeometry( 10000, 10000, 10000);
+            let skybox = new THREE.Mesh( skyboxGeo, materialArray );
+            scene.add( skybox );  
+            animate();
+          }
+    
+          function animate() {
+            renderer.render(scene,camera);
+            requestAnimationFrame(animate);
+    
+          }
+        </script>
+    <div class="top-box">
+        <div class="animate__animated animate__fadeIn" id="left-text"><a href=index.html>$__S</a></div>
         <div class="top-right">
-            <div class="right-text" id="info"><a1 href="info.html">info</a1></div>
-            <div class="right-text" id="portfolio"><a href="portfolio.html">portfolio</a></div>
-            <div class="right-text" id="instagram"><a href="https://www.instagram.com/sleepingsanta2">instagram</a></div>
-            <div class="right-text" id="music"><a href="https://soundcloud.com/sleepingsanta">music</a></div>
+            <div class="right-text" id="info"><a1 href="info.html">Info</a1></div>
+            <div class="right-text" id="portfolio"><a href="portfolio.html">Portfolio</a></div>
+            <div class="right-text" id="instagram"><a href="https://www.instagram.com/sleepingsanta2">Instagram</a></div>
+            <div class="right-text" id="music"><a href="https://soundcloud.com/sleepingsanta">Music</a></div>
         </div>
         <div class="top-left">
             <a href="index.html">
@@ -20,33 +103,34 @@
                 <img class="left-text-red" src="img/red.png">
             </a>
         </div>
-        <div class="center-info">
-            <div class="face-box">
+    </div>
+        <div class="animate__animated animate__fadeIn" id="play1">
                 <img class="face" src="img/info-face-devil.png" alt="lee hae-chan face">
-            </div>
-            <div class="text" id="name">
-                Lee hae-chan<br>
+                <div onclick="play()" class="black-back"><br><a1>Click To Play Lord Prayer</a1><br><br><a2>Our Father, which art in heaven, Hallowed be thy Name. Thy Kingdom come. Thy will be done in earth, As it is in heaven. Give us this day our daily bread. And forgive us our trespasses, As we forgive them that trespass against us. And lead us not into temptation, But deliver us from evil. For thine is the kingdom, The power, and the glory, For ever and ever. Amen.</a2></div>
+        </div>
+        <div class="center-info">
+            <div class="animate__animated animate__fadeIn" id="name">
+                <a3>Lee hae-chan</a3><br>
                 $leeping_Santa($_S)<br>
                 1999.06.11
             </div>
-            <div class="text" id="live">
-                Republlic of korea (Daegu)
+            <div class="animate__animated animate__fadeIn" id="live">
+                <a3>Republlic of korea (Daegu)</a3>
             </div>
-            <div class="text" id="insta">
-                Instagram<br>
+            <div class="animate__animated animate__fadeIn" id="insta">
+                <a3>Instagram</a3><br>
                 sleepingsanta2
             </div>
-            <div class="text" id="mail">
-                e-mail<br>
+            <div class="animate__animated animate__fadeIn" id="mail">
+                <a3>E-mail</a3><br>
                 leehc2203@gmail.com<br>
                 dlgocks2203@gmail.com<br>
             </div>
-            <div class="text" id="bilbe">
-                John 13:34-35<br>
+            <div class="animate__animated animate__fadeIn" id="bilbe">
+                <a3>John 13:34-35</a3><br>
                 A new command I give you: Love one another. As I have loved you, so you must love one another. By this everyone will know that you are my disciples, if you love one another.
-                <br>
-                <br>
-                <br>
+                <br><br>
             </div>
         </div>
+
     </body>

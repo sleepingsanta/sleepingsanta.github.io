@@ -1,31 +1,47 @@
 body{
     background-color: black;
+    /*border: solid red 2px;*/
 }
-.top-right{
-    z-index: 100;
-    right: 20px;
-    top: 20px;
+.center-box{
     position: fixed;
     color: white;
-    /* border: red 2px solid; */
+    font-size: 20px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+#hello{
+    top: 35px;
+    font-family: 'PT serif', serif;
+    text-align: center;
+    position: relative;
+}
+
+.top-right{
+    right: 20px;
+    top: 35px;
+    position: fixed;
+    color: white;
+    /*border: red 2px solid;*/
 }
 .right-text{
     position: relative;
     font-size: 20px;
     font-family: 'PT serif', serif;
     display: inline;
-    /* border: red 2px solid; */
+
+    margin: 1vh;
+    /*border: red 2px solid;*/
 }
 .top-left{
-    z-index: 100;;
     left: 20px;
     top: 10px;
-    position: relative;
     height: 80px;
     width: 80px;
     position: fixed;
     color: white;
-    margin: 0px auto;
+
+    /*border: red solid 2px;*/
 }
 .left-text-red{
     position: absolute;
@@ -36,24 +52,12 @@ body{
     transition: 0.2s linear;
 }
 .top-left:hover .left-text-red{
-    opacity: 1;
+    opacity: 100;
 }
 .left-text-white{
     position: relative;
     height: 100%;
     width: 100%
-}
-.big-box{
-}
-.img{
-}
-.small-img{
-    top: 80px;
-    /* border: solid red 2px; */
-    width: 450px;
-    height: auto;
-    position: relative;
-    margin: 20px;
 }
 
 a:link{
@@ -69,10 +73,168 @@ a:hover{
     color: rgb(255, 30, 30);
     font-style: italic;
 }
-.small-img:hover {
+/*.small-img:hover {
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
-  }
+    transition-duration: 0.5s;
+  }*/
+
+.top-box{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border: red 2px solid;
+}
+main {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+}
+
+#item-grid {
+
+    top: 100px;
+
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 100%;
+
+    border: solid red 2px;
+}
+.item-container {
+
+    position: relative;
+    width: 33.3333333%;   /* 100 / 아이템 수 */
+    padding-top: 33.3333333%;
+} 
+.item {
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: 8px;
+    overflow: hidden;
+}
+
+.item > img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.item:hover .overlay {
+    opacity: 1;
+
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    font-family: 'PT serif', serif;
+}
+#item {
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: 8px;
+    overflow: hidden;
+}
+#item > img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+#item:hover .overlay {
+    opacity: 1;
+
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+#left-text{
+    position: relative;
+    height: 80px;
+    width: 80px;
+    left: 20px;
+    top: 35px;
+
+    font-size: 20px;
+    font-family: 'PT serif', serif;
+    color: white;
+
+    display: none;
+}
+
+
+@media screen and (max-width: 960px) {
+    .item-container {
+        width: 50%;
+        padding-top: 50%;
+    } 
+    #hello {
+        display: none;
+    }
+}
+@media screen and (max-width: 520px) {
+    .item-container {
+        width: 100%;
+        padding-top: 100%;
+    }
+    .top-left{
+        display: none;
+    }
+    #left-text{
+        display: block;
+        top: 20px;
+    }
+    .top-box{
+        height: 50px;
+    }
+    .top-right{
+        top: 20px;
+    }
+    #item-grid {
+        margin-top: 50px;
+    }
+}
