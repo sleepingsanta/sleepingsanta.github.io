@@ -30,7 +30,7 @@ body{
     font-family: 'PT serif', serif;
     display: inline;
 
-    margin: 1vh;
+    margin: 0.5vh;
     /*border: red 2px solid;*/
 }
 .top-left{
@@ -95,7 +95,7 @@ a:hover{
     left: 0;
     right: 0;
 
-    border: red 2px solid;
+    /*border: red 2px solid;*/
 }
 main {
     position: relative;
@@ -112,12 +112,12 @@ main {
     position: absolute;
     width: 100%;
 
-    border: solid red 2px;
+    /*border: solid red 2px;*/
 }
 .item-container {
 
     position: relative;
-    width: 33.3333333%;   /* 100 / 아이템 수 */
+    width: 50%;
     padding-top: 33.3333333%;
 } 
 .item {
@@ -235,6 +235,6 @@ main {
         top: 20px;
     }
     #item-grid {
-        margin-top: 50px;
+        margin-top: 0px;
     }
 }
